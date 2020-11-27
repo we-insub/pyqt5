@@ -8,6 +8,7 @@ class MyApp(QWidget):
 
     def __init__(self):
         super().__init__()
+        self.date = QDate.currentDate()
         self.initUI()
 
     def initUI(self):

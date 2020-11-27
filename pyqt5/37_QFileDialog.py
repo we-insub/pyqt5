@@ -1,7 +1,3 @@
-# https://wikidocs.net/21950
-
-# QFileDialog는 사용자가 파일 또는 경로를 선택할 수 있도록 하는 다이얼로그입니다.
-
 ## Ex 6-4. QFileDialog.
 
 import sys
@@ -36,10 +32,6 @@ class MyApp(QMainWindow):
 
     def showDialog(self):
         fname = QFileDialog.getOpenFileName(self, 'Open file', './')
-        # QFileDialog를 띄우고, getOpenFileName() 메서드를 사용해서 파일을 선택합니다.
-        #
-        # 세 번째 매개변수를 통해 기본 경로를 설정할 수 있습니다.
-        # 또한 기본적으로 모든 파일( * )을 열도록 되어있습니다.
 
         if fname[0]:
             f = open(fname[0], 'r')
@@ -47,7 +39,6 @@ class MyApp(QMainWindow):
             with f:
                 data = f.read()
                 self.textEdit.setText(data)
-                # 선택한 파일을 읽어서, setText() 메서드를 통해 텍스트 편집 위젯에 불러옵니다.
 
 
 if __name__ == '__main__':

@@ -16,8 +16,8 @@ class MyApp(QWidget):
         self.lbl = QLabel('Option1', self)
         self.lbl.move(50, 150)
 
-        cb = QComboBox(self)
-        cb.addItem('Option1')
+        cb = QComboBox(self) # 콤보박스 선언
+        cb.addItem('Option1') # 항목 1,2,3,4
         cb.addItem('Option2')
         cb.addItem('Option3')
         cb.addItem('Option4')
@@ -25,7 +25,8 @@ class MyApp(QWidget):
         # 가능한 4개의 옵션들을 추가했습니다.
         cb.move(50, 50)
 
-        cb.activated[str].connect(self.onActivated)
+        cb.activated[str].connect(self.onActivated) #엑티베이틷된 문자열을 온엑티베이티드로받아서
+        # 레이블에 다가 set text로 출력을 합니다
         # 옵션을 선택하면, onActivated() 메서드가 호출됩니다.
 
         self.setWindowTitle('QComboBox')

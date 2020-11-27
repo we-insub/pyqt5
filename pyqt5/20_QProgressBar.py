@@ -21,13 +21,13 @@ class MyApp(QWidget):
         self.initUI()
 
     def initUI(self):
-        self.pbar = QProgressBar(self)
+        self.pbar = QProgressBar(self) # 프로그래스바
         # QProgressBar 생성자로 진행 표시줄을 하나 만들어줍니다
-        self.pbar.setGeometry(30, 40, 200, 25)
+        self.pbar.setGeometry(30, 40, 200, 25) #좌표잡고
 
         self.btn = QPushButton('Start', self)
         self.btn.move(40, 80)
-        self.btn.clicked.connect(self.doAction)
+        self.btn.clicked.connect(self.doAction) #버튼이눌리면 액션실행
 
         self.timer = QBasicTimer()
         # 진행 표시줄을 활성화하기 위해, 타이머 객체를 사용합니다.
@@ -38,12 +38,12 @@ class MyApp(QWidget):
         self.show()
 
     def timerEvent(self, e):
-        if self.step >= 100:
+        if self.step >= 100: # 타이머가 100미리세크보다 크거나 같으면
             self.timer.stop()
             self.btn.setText('Finished')
             return
 
-        self.step = self.step + 1
+        self.step = self.step + 1 #스텝값을 증가시킨다.
         self.pbar.setValue(self.step)
         # 각각의 QObject와 그 자손들은 timerEvent() 이벤트 핸들러를 갖습니다.
         # 타이머 이벤트에 반응하기 위해, 이벤트 핸들러를 재구성해줍니다.
